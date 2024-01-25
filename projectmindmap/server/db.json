@@ -1,0 +1,162 @@
+{
+  "project_mindmap": [
+    {
+      "id": "c896c59d-c59d-46a0-8faf-bd955f51ee3a",
+      "name": "Không có tên",
+      "user_id": "google-oauth2-100996255856110693870",
+      "private": true,
+      "dataNodes": [
+        {
+          "width": 150,
+          "height": 40,
+          "id": "3",
+          "position": {
+            "x": 271.36754167577436,
+            "y": 202.1983219793076
+          },
+          "data": {
+            "label": "Node 3 fdsfsadf"
+          },
+          "origin": [
+            0.5,
+            0
+          ],
+          "positionAbsolute": {
+            "x": 271.36754167577436,
+            "y": 202.1983219793076
+          },
+          "selected": false,
+          "dragging": false,
+          "type": ""
+        },
+        {
+          "width": 150,
+          "height": 40,
+          "id": "2",
+          "position": {
+            "x": 135.13589729163556,
+            "y": 88.7065355142656
+          },
+          "data": {
+            "label": "Node 2"
+          },
+          "origin": [
+            0.5,
+            0
+          ],
+          "positionAbsolute": {
+            "x": 135.13589729163556,
+            "y": 88.7065355142656
+          }
+        },
+        {
+          "width": 150,
+          "height": 40,
+          "id": "1",
+          "position": {
+            "x": -115.15942848140261,
+            "y": 100.79809714581333
+          },
+          "data": {
+            "label": "Node 1"
+          },
+          "origin": [
+            0.5,
+            0
+          ],
+          "positionAbsolute": {
+            "x": -115.15942848140261,
+            "y": 100.79809714581333
+          }
+        },
+        {
+          "width": 150,
+          "height": 40,
+          "id": "0",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "1"
+          },
+          "type": "input",
+          "deletable": false,
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "width": 150,
+          "height": 40,
+          "id": "4",
+          "position": {
+            "x": -271.89594340281405,
+            "y": 253.0991609896538
+          },
+          "data": {
+            "label": "Node 4"
+          },
+          "origin": [
+            0.5,
+            0
+          ],
+          "positionAbsolute": {
+            "x": -271.89594340281405,
+            "y": 253.0991609896538
+          }
+        }
+      ],
+      "dataEdges": [
+        {
+          "id": "1",
+          "source": "0",
+          "target": "1"
+        },
+        {
+          "id": "2",
+          "source": "0",
+          "target": "2"
+        },
+        {
+          "id": "3",
+          "source": "2",
+          "target": "3"
+        },
+        {
+          "id": "4",
+          "source": "1",
+          "target": "4"
+        }
+      ]
+    },
+    {
+      "id": "9af618f9-3597-490b-acf5-cb4546793361",
+      "name": "hello1283928193",
+      "user_id": "google-oauth2-100996255856110693870",
+      "private": true,
+      "dataNodes": [
+        {
+          "width": 150,
+          "height": 40,
+          "id": "0",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "1"
+          },
+          "type": "input",
+          "deletable": false,
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "dataEdges": []
+    }
+  ]
+}
