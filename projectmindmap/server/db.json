@@ -2,7 +2,7 @@
   "project_mindmap": [
     {
       "id": "56e40d68-8698-49c8-b728-6afde861be55",
-      "name": "Hello",
+      "name": "Hello12",
       "user_id": "google-oauth2-100996255856110693870",
       "private": false,
       "public_id": "56e40d68-8698-49c8-b728-6afde861be55",
@@ -14,6 +14,26 @@
         "desc": "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. "
       },
       "dataNodes": [
+        {
+          "width": 150,
+          "height": 40,
+          "id": "10",
+          "position": {
+            "x": 418.0256737268669,
+            "y": 253.6722696880264
+          },
+          "data": {
+            "label": "Node 10"
+          },
+          "origin": [
+            0.5,
+            0
+          ],
+          "positionAbsolute": {
+            "x": 418.0256737268669,
+            "y": 253.6722696880264
+          }
+        },
         {
           "width": 150,
           "height": 40,
@@ -57,26 +77,6 @@
         {
           "width": 150,
           "height": 40,
-          "id": "1",
-          "position": {
-            "x": -60.5,
-            "y": 109.5
-          },
-          "data": {
-            "label": "Node 1"
-          },
-          "origin": [
-            0.5,
-            0
-          ],
-          "positionAbsolute": {
-            "x": -60.5,
-            "y": 109.5
-          }
-        },
-        {
-          "width": 150,
-          "height": 40,
           "id": "0",
           "position": {
             "x": 0,
@@ -91,34 +91,9 @@
             "x": 0,
             "y": 0
           }
-        },
-        {
-          "width": 150,
-          "height": 40,
-          "id": "7",
-          "position": {
-            "x": -161.79061718618124,
-            "y": 395.34453937605275
-          },
-          "data": {
-            "label": "Node 7"
-          },
-          "origin": [
-            0.5,
-            0
-          ],
-          "positionAbsolute": {
-            "x": -161.79061718618124,
-            "y": 395.34453937605275
-          }
         }
       ],
       "dataEdges": [
-        {
-          "id": "1",
-          "source": "0",
-          "target": "1"
-        },
         {
           "id": "2",
           "source": "0",
@@ -130,9 +105,9 @@
           "target": "6"
         },
         {
-          "id": "7",
-          "source": "1",
-          "target": "7"
+          "id": "10",
+          "source": "2",
+          "target": "10"
         }
       ]
     }
