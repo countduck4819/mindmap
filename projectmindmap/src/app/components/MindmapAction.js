@@ -18,6 +18,7 @@ import TextUpdaterNode from "./mindmap/TextUpdaterNode";
 import useSWR from "swr";
 import Loading from "./Loading";
 import ActionBtnMindMap from "./ActionBtnMindMap";
+import { redirect } from "next/navigation";
 
 const nodeTypes = { textUpdater: TextUpdaterNode };
 const edgeTypes = { customEdge: CustomEdge };
@@ -29,16 +30,17 @@ function MindmapAction({
     dataOrigin,
     setSave,
 }) {
-    const maxIdNode = initialNodes.sort((a, b) => {
+    const maxIdNode = initialNodes?.sort((a, b) => {
         return b.id - a.id;
     })[0];
-    const [countId, setCountId] = useState(Number(maxIdNode.id) + 1 + "");
-
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const reactFlowWrapper = useRef(null);
     const connectingNodeId = useRef(null);
 
+    const [countId, setCountId] = useState(
+        maxIdNode ? Number(maxIdNode.id) + 1 + "" : "1"
+    );
     const getId = async () => {
         await setCountId((prev) => Number(prev) + 1 + "");
     };
@@ -113,6 +115,32 @@ function MindmapAction({
         },
         [screenToFlowPosition, countId]
     );
+    if (!dataOrigin?.id) {
+        redirect("/not-found");
+    }
+
+    if (setSave === false) {
+        return (
+            <div style={{ height: "100vh" }}>
+                <ReactFlow
+                    nodes={initialNodes}
+                    edges={initialEdges}
+                    deleteKeyCode={"Delete"}
+                    // onNodesChange={onHandleNodesChange}
+                    nodeTypes={nodeTypes}
+                    edgeTypes={edgeTypes}
+                    fitView
+                    fitViewOptions={{ padding: 2 }}
+                    zoomOnDoubleClick={false}
+                    nodeOrigin={[0.5, 0]}
+                >
+                    <Background />
+                    <Controls />
+                    <MiniMap nodeColor="red" pannable zoomable />
+                </ReactFlow>
+            </div>
+        );
+    }
 
     return (
         <div
@@ -120,30 +148,33 @@ function MindmapAction({
             className="wrapper mt-[63px] relative"
             ref={reactFlowWrapper}
         >
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                deleteKeyCode={"Delete"}
-                // onNodesChange={onHandleNodesChange}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnectStart={onConnectStart}
-                onNodeDoubleClick={nodeDoubleClick}
-                onConnectEnd={onConnectEnd}
-                onConnect={onConnect}
-                nodeTypes={nodeTypes}
-                edgeTypes={edgeTypes}
-                fitView
-                fitViewOptions={{ padding: 2 }}
-                zoomOnDoubleClick={false}
-                nodeOrigin={[0.5, 0]}
-            >
-                <Background />
-                <Controls />
-                <MiniMap nodeColor="red" pannable zoomable />
-            </ReactFlow>
             {setSave ? (
-                <ActionBtnMindMap dataOrigin={dataOrigin} id={id} />
+                <>
+                    <ReactFlow
+                        nodes={nodes}
+                        edges={edges}
+                        deleteKeyCode={"Delete"}
+                        // onNodesChange={onHandleNodesChange}
+                        onNodesChange={onNodesChange}
+                        onEdgesChange={onEdgesChange}
+                        onConnectStart={onConnectStart}
+                        onNodeDoubleClick={nodeDoubleClick}
+                        onConnectEnd={onConnectEnd}
+                        onConnect={onConnect}
+                        nodeTypes={nodeTypes}
+                        edgeTypes={edgeTypes}
+                        style={{ height: "100vh" }}
+                        fitView
+                        fitViewOptions={{ padding: 2 }}
+                        zoomOnDoubleClick={false}
+                        nodeOrigin={[0.5, 0]}
+                    >
+                        <Background />
+                        <Controls />
+                        <MiniMap nodeColor="red" pannable zoomable />
+                    </ReactFlow>
+                    <ActionBtnMindMap dataOrigin={dataOrigin} id={id} />
+                </>
             ) : (
                 <></>
             )}
@@ -151,11 +182,19 @@ function MindmapAction({
     );
 }
 
-export default (props) => {
+function Mindmap(props) {
     const fetcher = (url) => fetch(url).then((res) => res.json());
-    const { id } = props;
+    const { id, setSave } = props;
+    console.log(
+        `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap${
+            setSave ? "/" + id : "?public_id=" + id
+        }`,
+        setSave
+    );
     const { data, isLoading, error } = useSWR(
-        `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`,
+        `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap${
+            setSave ? "/" + id : "?public_id=" + id
+        }`,
         fetcher,
         {
             revalidateOnFocus: true,
@@ -169,18 +208,25 @@ export default (props) => {
 
     return (
         <>
+            {console.log(data)}
             {isLoading ? (
                 <Loading />
             ) : (
                 <ReactFlowProvider>
                     <MindmapAction
                         {...props}
-                        dataOrigin={data}
-                        initialEdges={data.dataEdges}
-                        initialNodes={data.dataNodes}
+                        dataOrigin={setSave ? data : data[0]}
+                        initialEdges={
+                            setSave ? data?.dataEdges : data[0]?.dataEdges
+                        }
+                        initialNodes={
+                            setSave ? data?.dataNodes : data[0]?.dataNodes
+                        }
                     />
                 </ReactFlowProvider>
             )}
         </>
     );
-};
+}
+
+export default Mindmap;

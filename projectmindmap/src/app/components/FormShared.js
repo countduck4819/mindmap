@@ -2,9 +2,16 @@
 import React, { useState } from "react";
 import "@/assets/form.scss";
 import { usePathname } from "next/navigation";
-function FormShared({ dataPrivate, id }) {
+function FormShared({ dataPrivate, id, dataOrigin }) {
     const pathname = usePathname();
-    console.log(dataPrivate);
+    const [linkShared, setLinkShared] = useState(
+        `${process.env.NEXT_PUBLIC_HOST}${pathname}`
+    );
+    console.log(dataOrigin, dataOrigin.name);
+    const [title, setTitle] = useState(dataOrigin.name);
+    const [imageShared, setImageShared] = useState(dataOrigin.image);
+    const [desc, setDesc] = useState(dataOrigin.desc);
+    console.log(pathname);
     const [pri, setPrivate] = useState(dataPrivate);
     const handlePrivate = (e) => {
         // console.log(e.target);
@@ -23,18 +30,43 @@ function FormShared({ dataPrivate, id }) {
     const handleSubmit = async function (e) {
         e.preventDefault();
         const form = document.querySelector(".form-shared form");
-        const response = await fetch(
-            `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`,
-            {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    private: pri,
-                }),
-            }
-        );
+        if (pri === true) {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        private: pri,
+                        public: null,
+                        public_id: null,
+                    }),
+                }
+            );
+        } else {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        private: pri,
+                        public: {
+                            title,
+                            imageShared,
+                            desc,
+                        },
+                        public_id: linkShared.slice(
+                            linkShared.lastIndexOf("/") + 1
+                        ),
+                    }),
+                }
+            );
+        }
         const formShared = document.querySelector("#form-shared");
         formShared.classList.add("hidden");
     };
@@ -49,7 +81,7 @@ function FormShared({ dataPrivate, id }) {
                         formShared.classList.add("hidden");
                     }}
                 ></div>
-                <div class="container">
+                <div class="container rounded-lg">
                     <form action="" onSubmit={handleSubmit}>
                         <div className="action flex justify-center gap-[35px] mb-[30px]">
                             <div
@@ -102,17 +134,38 @@ function FormShared({ dataPrivate, id }) {
                             <>
                                 <div class="form-row">
                                     <div class="input-data">
-                                        <input type="text" className="input" />
+                                        <input
+                                            type="text"
+                                            className="input"
+                                            onChange={(e) =>
+                                                setLinkShared(e.target.value)
+                                            }
+                                            value={linkShared}
+                                        />
                                         <div class="underline"></div>
                                         <label for="">Link shared</label>
                                     </div>
                                     <div class="input-data">
-                                        <input type="text" className="input" />
+                                        <input
+                                            type="text"
+                                            className="input"
+                                            onChange={(e) =>
+                                                setTitle(e.target.value)
+                                            }
+                                            value={title}
+                                        />
                                         <div class="underline"></div>
                                         <label for="">Title</label>
                                     </div>
                                     <div class="input-data">
-                                        <input type="text" className="input" />
+                                        <input
+                                            type="text"
+                                            className="input"
+                                            onChange={(e) =>
+                                                setImageShared(e.target.value)
+                                            }
+                                            value={imageShared}
+                                        />
                                         <div class="underline"></div>
                                         <label for="">Image shared</label>
                                     </div>
@@ -124,6 +177,10 @@ function FormShared({ dataPrivate, id }) {
                                         className="pl-[12px]"
                                         rows="8"
                                         cols="80"
+                                        onChange={(e) =>
+                                            setDesc(e.target.value)
+                                        }
+                                        value={desc}
                                     ></textarea>
                                     <br />
                                     <br />

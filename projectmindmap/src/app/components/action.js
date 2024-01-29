@@ -13,6 +13,10 @@ export const handleClickAdd = async function (sub) {
             name: "Không có tên",
             user_id: user_id,
             private: true,
+            public_id: null,
+            desc: "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. ",
+            image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Elements_of_the_culture_mindmap.png",
+            public: null,
             dataNodes: [
                 {
                     id: "0",

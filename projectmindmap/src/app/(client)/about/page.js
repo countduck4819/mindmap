@@ -1,32 +1,25 @@
-"use client";
-import React, { memo, useEffect, useRef, useState } from "react";
+import React from "react";
 
+import img from "@/image/ograph.png";
+import AboutVid from "@/app/components/aboutvid/AboutVid";
+
+export const metadata = {
+    title: "Mindmap - About",
+    metadataBase: process.env.NEXT_PUBLIC_HOST,
+    openGraph: {
+        title: "Mindmap - About",
+        description:
+            "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. ",
+        images: [
+            "https://upload.wikimedia.org/wikipedia/commons/c/cf/Elements_of_the_culture_mindmap.png",
+        ],
+    },
+};
 function About() {
-    const videoRef = useRef();
-    const [vid, setVid] = useState(false);
-    useEffect(() => {
-        videoRef.current.addEventListener("click", (e) => {
-            if (vid) {
-                e.target.pause();
-                setVid(false);
-            } else {
-                e.target.play();
-                setVid(true);
-            }
-        });
-    });
     return (
         <section className="about">
             <div className="intro">
-                <div ref={videoRef} className="video-desc">
-                    <div className="box-video"></div>
-                    <video
-                        autoPlay={false}
-                        loop={true}
-                        muted={false}
-                        src={require("@/video/intro-video.mp4")}
-                    ></video>
-                </div>
+                <AboutVid />
                 <div className="info-desc">
                     <h1 className="heading">Welcome to our site</h1>
                     <div className="desc">
@@ -58,4 +51,4 @@ function About() {
     );
 }
 
-export default memo(About);
+export default About;

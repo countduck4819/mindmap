@@ -3,10 +3,12 @@ import { useReactFlow } from "reactflow";
 import FormShared from "./FormShared";
 import { mutate } from "swr";
 import { revalidate } from "./action";
+import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 
 function ActionBtnMindMap({ id, dataOrigin }) {
     const [name, setName] = useState(dataOrigin.name);
-
+    const route = useRouter();
     const reactflow = useReactFlow();
 
     async function handleClickSave(e) {
@@ -33,7 +35,9 @@ function ActionBtnMindMap({ id, dataOrigin }) {
                 `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`
             );
 
-            revalidate();
+            // revalidatePath(
+            //     `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`
+            // );
         }
     }
 
@@ -76,7 +80,11 @@ function ActionBtnMindMap({ id, dataOrigin }) {
                     Shared
                 </div>
             </div>
-            <FormShared dataPrivate={dataOrigin.private} id={id}></FormShared>
+            <FormShared
+                dataOrigin={dataOrigin}
+                dataPrivate={dataOrigin.private}
+                id={id}
+            ></FormShared>
         </>
     );
 }

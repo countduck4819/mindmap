@@ -1,41 +1,46 @@
 {
   "project_mindmap": [
     {
-      "id": "c896c59d-c59d-46a0-8faf-bd955f51ee3a",
-      "name": "Không có tên",
+      "id": "56e40d68-8698-49c8-b728-6afde861be55",
+      "name": "Hello",
       "user_id": "google-oauth2-100996255856110693870",
-      "private": true,
+      "private": false,
+      "public_id": "56e40d68-8698-49c8-b728-6afde861be55",
+      "desc": "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. ",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Elements_of_the_culture_mindmap.png",
+      "public": {
+        "title": "Hello3123",
+        "imageShared": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Elements_of_the_culture_mindmap.png",
+        "desc": "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. "
+      },
       "dataNodes": [
         {
           "width": 150,
           "height": 40,
-          "id": "3",
+          "id": "6",
           "position": {
-            "x": 271.36754167577436,
-            "y": 202.1983219793076
+            "x": 280.6311040312162,
+            "y": 314.37670842824605
           },
           "data": {
-            "label": "Node 3 fdsfsadf"
+            "label": "Node 6"
           },
           "origin": [
             0.5,
             0
           ],
           "positionAbsolute": {
-            "x": 271.36754167577436,
-            "y": 202.1983219793076
-          },
-          "selected": false,
-          "dragging": false,
-          "type": ""
+            "x": 280.6311040312162,
+            "y": 314.37670842824605
+          }
         },
         {
           "width": 150,
           "height": 40,
           "id": "2",
           "position": {
-            "x": 135.13589729163556,
-            "y": 88.7065355142656
+            "x": 121.5,
+            "y": 110.5
           },
           "data": {
             "label": "Node 2"
@@ -45,8 +50,8 @@
             0
           ],
           "positionAbsolute": {
-            "x": 135.13589729163556,
-            "y": 88.7065355142656
+            "x": 121.5,
+            "y": 110.5
           }
         },
         {
@@ -54,8 +59,8 @@
           "height": 40,
           "id": "1",
           "position": {
-            "x": -115.15942848140261,
-            "y": 100.79809714581333
+            "x": -60.5,
+            "y": 109.5
           },
           "data": {
             "label": "Node 1"
@@ -65,8 +70,8 @@
             0
           ],
           "positionAbsolute": {
-            "x": -115.15942848140261,
-            "y": 100.79809714581333
+            "x": -60.5,
+            "y": 109.5
           }
         },
         {
@@ -90,21 +95,21 @@
         {
           "width": 150,
           "height": 40,
-          "id": "4",
+          "id": "7",
           "position": {
-            "x": -271.89594340281405,
-            "y": 253.0991609896538
+            "x": -161.79061718618124,
+            "y": 395.34453937605275
           },
           "data": {
-            "label": "Node 4"
+            "label": "Node 7"
           },
           "origin": [
             0.5,
             0
           ],
           "positionAbsolute": {
-            "x": -271.89594340281405,
-            "y": 253.0991609896538
+            "x": -161.79061718618124,
+            "y": 395.34453937605275
           }
         }
       ],
@@ -120,43 +125,16 @@
           "target": "2"
         },
         {
-          "id": "3",
+          "id": "6",
           "source": "2",
-          "target": "3"
+          "target": "6"
         },
         {
-          "id": "4",
+          "id": "7",
           "source": "1",
-          "target": "4"
+          "target": "7"
         }
       ]
-    },
-    {
-      "id": "9af618f9-3597-490b-acf5-cb4546793361",
-      "name": "hello1283928193",
-      "user_id": "google-oauth2-100996255856110693870",
-      "private": true,
-      "dataNodes": [
-        {
-          "width": 150,
-          "height": 40,
-          "id": "0",
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "data": {
-            "label": "1"
-          },
-          "type": "input",
-          "deletable": false,
-          "positionAbsolute": {
-            "x": 0,
-            "y": 0
-          }
-        }
-      ],
-      "dataEdges": []
     }
   ]
 }

@@ -7,7 +7,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-
+export const metadata = {
+    title: "Mindmap - Contact",
+    metadataBase: process.env.NEXT_PUBLIC_HOST,
+    openGraph: {
+        title: "Mindmap - Contact",
+        description:
+            "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. ",
+        images: [
+            "https://upload.wikimedia.org/wikipedia/commons/c/cf/Elements_of_the_culture_mindmap.png",
+        ],
+    },
+};
 function Contact() {
     return (
         <section className="contact">
