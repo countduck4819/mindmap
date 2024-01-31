@@ -2,6 +2,8 @@ import "@/assets/reset.scss";
 import "@/assets/style.scss";
 import "@/app/globals.css";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 import { Providers } from "./components/Providers";
 export const metadata = {
@@ -28,6 +30,7 @@ export default function RootLayout({ children }) {
                     <main>
                         <UserProvider>{children}</UserProvider>
                     </main>
+                    <ToastContainer />
                 </Providers>
             </body>
         </html>

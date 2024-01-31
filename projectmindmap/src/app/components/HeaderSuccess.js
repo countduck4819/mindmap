@@ -8,6 +8,7 @@ import Link from "next/link";
 import ThemeSwitch from "./ThemeSwitch";
 import Header from "./Header";
 import ButtonBack from "./ButtonBack";
+import OptionUser from "./OptionUser";
 async function HeaderSuccess() {
     const user = await getSession();
     if (!user) {
@@ -42,17 +43,7 @@ async function HeaderSuccess() {
             </div>
 
             <div className="header-right">
-                <div className="content">
-                    <div className="name">{user.user.name}</div>
-                    <div className="img">
-                        <img
-                            src={user.user.picture}
-                            width="100%"
-                            height="100%"
-                            alt="user"
-                        />
-                    </div>
-                </div>
+                <OptionUser user={user.user} />
 
                 <ThemeSwitch />
             </div>

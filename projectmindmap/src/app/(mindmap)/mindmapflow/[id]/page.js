@@ -21,7 +21,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     if (!user) {
         let data = await getProject(`?public_id=${id}`);
         data = data[0];
-        if (data.private === false) {
+        if (data?.private === false) {
             return {
                 title: data.public.title,
                 description: data.public.desc,
@@ -53,13 +53,35 @@ async function Mindmap({ params }) {
     if (!user) {
         const dataProject = await getProject(`?public_id=${id}`);
         check = false;
-        if (dataProject.private === false) {
+        if (dataProject[0].private === false) {
             return <MindmapAction id={id} setSave={check} />;
         } else {
             // redirect("/not_found");
         }
+    } else {
+        console.log("???");
+        const dataProject = await getProject(`/${id}`);
+        if (
+            dataProject.id &&
+            user.user.sub.replace("|", "-") === dataProject.user_id
+        ) {
+            return <MindmapAction id={id} setSave={check} />;
+        } else if (
+            dataProject.id &&
+            user.user.sub.replace("|", "-") !== dataProject.user_id
+        ) {
+            check = false;
+            return <MindmapAction id={id} setSave={check} />;
+        } else {
+            const data = await getProject(`?public_id=${id}`);
+            if (data[0]?.id) {
+                check = false;
+                return <MindmapAction id={id} setSave={check} />;
+            } else {
+                redirect("/not-found");
+            }
+        }
     }
-    return <MindmapAction id={id} setSave={check} />;
 }
 
 export default Mindmap;

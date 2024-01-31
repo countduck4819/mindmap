@@ -2,6 +2,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { revalidatePath } from "next/cache";
 export const handleClickAdd = async function (sub) {
+    const d = new Date();
     const user_id = sub.replace("|", "-");
     const response = await fetch(`${process.env.SERVER_API}/project_mindmap`, {
         method: "POST",
@@ -11,6 +12,9 @@ export const handleClickAdd = async function (sub) {
         body: JSON.stringify({
             id: uuidv4(),
             name: "Không có tên",
+            created_at: `${d.getDate()}/${
+                d.getMonth() + 1
+            }/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
             user_id: user_id,
             private: true,
             public_id: null,

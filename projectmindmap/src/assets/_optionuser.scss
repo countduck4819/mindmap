@@ -1,0 +1,26 @@
+.user-option {
+    cursor: pointer;
+    position: relative;
+    .option_user {
+        background-color: var(--bg-global-color);
+        position: absolute;
+        top: 30px;
+        left: 0;
+        translate: 0 15px;
+        font-size: 1.6rem;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        li {
+            color: orangered;
+            padding: 5px 13px;
+            min-width: 100px;
+            &:hover {
+                background-color: #ffdee9;
+                background-image: linear-gradient(
+                    0deg,
+                    #ffdee9 0%,
+                    #b5fffc 100%
+                );
+            }
+        }
+    }
+}

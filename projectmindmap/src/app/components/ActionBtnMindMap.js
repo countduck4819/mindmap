@@ -5,6 +5,7 @@ import { mutate } from "swr";
 import { revalidate } from "./action";
 import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 function ActionBtnMindMap({ id, dataOrigin }) {
     const [name, setName] = useState(dataOrigin.name);
@@ -34,10 +35,12 @@ function ActionBtnMindMap({ id, dataOrigin }) {
             mutate(
                 `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`
             );
-
+            toast.success("Saved successfully !");
             // revalidatePath(
             //     `${process.env.NEXT_PUBLIC_SERVER_API}/project_mindmap/${id}`
             // );
+        } else {
+            toast.error("Error !");
         }
     }
 

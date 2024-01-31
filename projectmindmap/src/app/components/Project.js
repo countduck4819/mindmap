@@ -28,23 +28,28 @@ function Project({ project, sub }) {
             <div data-id={project.id} className="name-project">
                 {project.name}
             </div>
-            <div className="actions hidden transition-all absolute gap-[30px] items-center justify-center inset-0 bg-slate-900 ">
-                <div
-                    className="edit hover:opacity-70"
-                    onClick={handleClickEdit}
-                    data-id={project.id}
-                >
-                    <FontAwesomeIcon icon={faPenToSquare} />
+            <div className="actions hidden transition-all absolute gap-[10px] flex-col items-center justify-center inset-0 bg-slate-900">
+                <div className="createAt absolute top-6 text-orange-50">
+                    {project?.created_at}
                 </div>
-                <div
-                    className="delete hover:opacity-70"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        handleClickRemove(project.id);
-                    }}
-                >
-                    <FontAwesomeIcon icon={faTrash} />
+                <div className="flex items-center gap-[30px] justify-center">
+                    <div
+                        className="edit hover:opacity-70"
+                        onClick={handleClickEdit}
+                        data-id={project.id}
+                    >
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                    </div>
+                    <div
+                        className="delete hover:opacity-70"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            handleClickRemove(project.id);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faTrash} />
+                    </div>
                 </div>
             </div>
         </div>
