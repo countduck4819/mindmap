@@ -1,0 +1,116 @@
+.dark {
+    background-color: #222;
+    .feature {
+        .info {
+            h2.heading {
+                color: transparent;
+                background-color: rgb(59 130 246/1);
+                background-image: linear-gradient(
+                    to top,
+                    #b224ef 0%,
+                    #7579ff 100%
+                );
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+        }
+        .teams {
+            h2.heading {
+                color: transparent;
+                background-color: rgb(59 130 246/1);
+                background-image: linear-gradient(
+                    to top,
+                    #b224ef 0%,
+                    #7579ff 100%
+                );
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+        }
+    }
+}
+.feature {
+    padding: 1rem 6.5%;
+    margin-top: 12rem;
+    margin-bottom: 7rem;
+
+    .info {
+        color: rgb(17 24 39/ 1);
+        h2.heading {
+            font-size: 5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .desc {
+            font-size: 1.7rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            line-height: 1.8rem;
+            letter-spacing: 1px;
+        }
+    }
+
+    .teams {
+        h2.heading {
+            color: #000;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .desc {
+            font-size: 1.8rem;
+            width: 800px;
+            margin: 0px auto;
+            color: #aaa;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            line-height: 2.7rem;
+            letter-spacing: 1px;
+        }
+
+        .team {
+            margin-top: 70px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            .sub-team {
+                flex-basis: calc(100% / 3 - 50px * 2);
+                max-width: calc(100% / 3 - 50px * 2);
+                .icon {
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.8rem;
+                    svg {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
+                    padding: 10px;
+                    border-radius: 50%;
+                    background-color: rgb(195 221 253 /1);
+                }
+                h3.heading {
+                    margin-top: 20px;
+                    font-size: 2rem;
+                }
+
+                .desc {
+                    color: #bbb;
+                    width: 105%;
+                    font-size: 1.5rem;
+                    text-align: left;
+                    margin: 5px 0px 0px;
+                }
+            }
+        }
+    }
+}

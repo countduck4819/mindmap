@@ -1,0 +1,183 @@
+.dark {
+    .price {
+        .info {
+            color: #fff;
+        }
+        .table-price {
+            .sub-price {
+                h3.heading {
+                    color: #fff;
+                }
+
+                .price-month {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.price {
+    padding: 1rem 6.5%;
+    margin-top: 12rem;
+    margin-bottom: 7rem;
+    .info {
+        color: rgb(17 24 39 /1);
+        letter-spacing: -0.025rem;
+        h2.heading-feature {
+            font-weight: 700;
+            text-align: center;
+            font-size: 3rem;
+            padding-bottom: 1.2rem;
+        }
+
+        .desc {
+            font-size: 1.7rem;
+            max-width: 700px;
+            text-align: center;
+            line-height: 1.8;
+            color: #888;
+            margin: 0px auto;
+        }
+        // margin
+    }
+
+    .table-price {
+        margin-top: 7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .sub-price {
+            min-height: 720px;
+            flex-basis: 295px;
+            flex-shrink: 0;
+            &:nth-child(1) {
+                border-radius: 20px 0px 0px 20px;
+            }
+
+            &:last-child {
+                border-radius: 0px 20px 20px 0px;
+            }
+            padding: 3.2rem;
+            border: solid 1px #e1e4e6;
+            h3.heading {
+                color: #3d474d;
+                font-weight: 600;
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+            .desc {
+                display: flex;
+                flex-direction: column;
+                font-size: 1.7rem;
+                color: #aaa;
+                margin-bottom: 57px;
+            }
+
+            .price-month {
+                color: #3d474d;
+                font-weight: 700;
+                font-size: 3.1rem;
+                position: relative;
+                display: inline-block;
+                span {
+                    position: absolute;
+                    right: -35px;
+                    top: -15px;
+                    font-weight: 600;
+                    font-size: 2.5rem;
+                }
+            }
+
+            .span {
+                font-size: 1.7rem;
+                color: #aaa;
+                padding: 5px 0px 15px;
+            }
+
+            .button {
+                font-size: 1.7rem;
+                cursor: pointer;
+                font-weight: 600;
+                border: 1px solid currentColor;
+                border-radius: 1rem;
+                width: 100%;
+                height: 4.8rem;
+                color: #00aaff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 5rem;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .use {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .intro {
+                    // margin-bottom: 7px;
+                    font-size: 1.7rem;
+                    font-weight: 700;
+                }
+                .sub-use {
+                    margin-bottom: 10px;
+                    font-size: 1.6rem;
+                    color: #999;
+                    display: flex;
+                    gap: 12px;
+                    align-items: center;
+                }
+            }
+        }
+
+        .special {
+            min-height: 745px;
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            border: solid 2px #8d5ae2 !important;
+            align-self: stretch;
+            height: 540px;
+            position: relative;
+            overflow: hidden;
+            .box-block {
+                transform: translate(70px, 17px) rotate(45deg);
+                position: absolute;
+                top: 0;
+                left: 0;
+                .box {
+                    font-size: 2rem;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 368px;
+                    height: 45px;
+                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07),
+                        0 5px 10px -5px rgba(0, 0, 0, 0.15);
+                    background-image: linear-gradient(
+                        90deg,
+                        #af67ff 40%,
+                        #6066f6 65%
+                    );
+                }
+            }
+
+            h3.heading {
+                margin-top: 10px;
+                color: #00aaff;
+            }
+            .button {
+                margin-top: 2px;
+                background-color: #00aaff;
+                color: #fff;
+                border: none;
+            }
+
+            .desc {
+                margin-top: 2px;
+            }
+        }
+    }
+}

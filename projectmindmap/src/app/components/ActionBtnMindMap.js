@@ -6,6 +6,8 @@ import { revalidate } from "./action";
 import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFloppyDisk, faShare } from "@fortawesome/free-solid-svg-icons";
 
 function ActionBtnMindMap({ id, dataOrigin }) {
     const [name, setName] = useState(dataOrigin.name);
@@ -74,6 +76,7 @@ function ActionBtnMindMap({ id, dataOrigin }) {
                     class="border-[2px] border-solid border-green-600 rounded-lg px-3 py-2 text-green-400 text-[16px] cursor-pointer hover:bg-green-600 hover:text-green-200"
                 >
                     Save
+                    <FontAwesomeIcon className="pl-[5px]" icon={faFloppyDisk} />
                 </div>
 
                 <div
@@ -81,6 +84,7 @@ function ActionBtnMindMap({ id, dataOrigin }) {
                     onClick={handleShared}
                 >
                     Shared
+                    <FontAwesomeIcon className="pl-[5px]" icon={faShare} />
                 </div>
             </div>
             <FormShared
