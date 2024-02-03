@@ -2,7 +2,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./price.scss";
 import React from "react";
 import { faCheck, faStar } from "@fortawesome/free-solid-svg-icons";
-
+export const metadata = {
+    title: "Mindmap - Price",
+    metadataBase: process.env.NEXT_PUBLIC_HOST,
+    openGraph: {
+        title: "Mindmap - Price",
+        description:
+            "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. ",
+        images: [
+            "https://upload.wikimedia.org/wikipedia/commons/c/cf/Elements_of_the_culture_mindmap.png",
+        ],
+    },
+};
 function Price() {
     return (
         <>

@@ -3,6 +3,18 @@ import image from "@/image/feature.webp";
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+    title: "Mindmap - Feature",
+    metadataBase: process.env.NEXT_PUBLIC_HOST,
+    openGraph: {
+        title: "Mindmap - Feature",
+        description:
+            "Powerful & Easy To Use — Your Ideas Deserve A Beautiful Online Mind Map Canvas. Start For Free. Upgrade Anytime. ",
+        images: [
+            "https://upload.wikimedia.org/wikipedia/commons/c/cf/Elements_of_the_culture_mindmap.png",
+        ],
+    },
+};
 function Feature() {
     return (
         <>
